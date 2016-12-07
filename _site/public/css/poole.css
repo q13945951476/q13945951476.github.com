@@ -428,3 +428,9 @@ a.pagination-item:hover {
     border-bottom-right-radius: 4px;
   }
 }
+
+#archive abbr {
+  color: #666;
+  float: right;
+  font-size: 12px;
+}

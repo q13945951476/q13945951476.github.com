@@ -7,7 +7,7 @@ gems: [jekyll-paginate]
 # Setup
 title:               Yulz Coder
 tagline:             '为将者御事，为帅者御人。'
-description:         'My name is 于利柱.       '
+description:         '于利柱 '
 url:                 http://lanyon.getpoole.com
 baseurl:             ''
 paginate:            5
