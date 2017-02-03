@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
  <title>Yulz Coder</title>
- <link href="http://localhost:4000/atom.xml" rel="self"/>
- <link href="http://localhost:4000/"/>
- <updated>2016-12-26T21:22:24+08:00</updated>
- <id>http://localhost:4000</id>
+ <link href="http://lanyon.getpoole.com/atom.xml" rel="self"/>
+ <link href="http://lanyon.getpoole.com/"/>
+ <updated>2017-02-03T09:18:13+08:00</updated>
+ <id>http://lanyon.getpoole.com</id>
  <author>
    <name>Yulz</name>
    <email>191237647@qq.com</email>
@@ -14,9 +14,9 @@
  
  <entry>
    <title>no zuo no die</title>
-   <link href="http://localhost:4000/2016/12/26/zuoimage/"/>
+   <link href="http://lanyon.getpoole.com/2016/12/26/zuoimage/"/>
    <updated>2016-12-26T00:00:00+08:00</updated>
-   <id>http://localhost:4000/2016/12/26/zuoimage</id>
+   <id>http://lanyon.getpoole.com/2016/12/26/zuoimage</id>
    <content type="html">&lt;div class=&quot;message&quot;&gt;
   呦呦呦! 作死的同事.
 &lt;/div&gt;
@@ -88,9 +88,9 @@
  
  <entry>
    <title>2016年的总结</title>
-   <link href="http://localhost:4000/2016/12/26/16%E5%B9%B4%E7%9A%84%E6%80%BB%E7%BB%93/"/>
+   <link href="http://lanyon.getpoole.com/2016/12/26/16%E5%B9%B4%E7%9A%84%E6%80%BB%E7%BB%93/"/>
    <updated>2016-12-26T00:00:00+08:00</updated>
-   <id>http://localhost:4000/2016/12/26/16年的总结</id>
+   <id>http://lanyon.getpoole.com/2016/12/26/16年的总结</id>
    <content type="html">&lt;div class=&quot;message&quot;&gt;
   自己很早之前就想写博客、技术文章什么的，但是总感觉自己肚子里还没什么东西。迟迟都没有，或者也坚持不下去，好在现在决定写了，也算是好的开始吧，希望能坚持下去吧，既然作为第一个正式的总结，那就把它好好写写吧.
 &lt;/div&gt;
@@ -102,18 +102,18 @@
 
 &lt;p&gt;从第一个公司说起吧，刚毕业，当时的想法就是赶快找个工作吧，管它什么样呢。先有工作学点东西，到时候再换就行了。也不知道当时急个什么劲，第一个公司是到我们那第三次招聘，我才进去的（之前的两次都被pass了），进去之后感觉还很新奇，干劲十足，丫的，我要什么活都能干，什么都能干好（这种心态棒棒哒），但是刚入职没太久就被分到出差的一个组里了。去到北京干了三个月回来了（一个什么插件开发，实际就是去缕缕文档，有部分源码看看）。技术能力没有多大提高。回来之后终于正经干点开发的活了，食品溯源，以为是开发相应的系统，但实际就是给各个超市装电脑。&lt;strong&gt;直到一天&lt;/strong&gt; 我发现自己好久没写代码了，发现自己并不是想每天都在外面跑超市，现在做的对我没有好处，也不是我想要的。就决定换公司了。&lt;/p&gt;
 
-&lt;h2 id=&quot;第二家公司只有几个人&quot;&gt;第二家公司只有几个人&lt;/h2&gt;
+&lt;h2 id=&quot;section&quot;&gt;第二家公司只有几个人&lt;/h2&gt;
 
 &lt;p&gt;很好管理，什么都是老板一个人说的算，因为公司小，所以基本有活就干，这里感谢一下 &lt;strong&gt;东哥&lt;/strong&gt; 这是第一个在工作后对我有很大帮助的同事。工作内容基本就是哪块需要个网站，给别人做一个，有什么其他需求，再根据需求改改。熟悉了之后基本就是在搬砖。然后就是弄弄Android（几乎就是没有Android的活，就当是学习了），刚好我们隔壁是个做游戏的小工作组室，3、5个人，研究个游戏，反正也没上线，后来就黄了。 &lt;strong&gt;这是我第一次接触iOS&lt;/strong&gt; 公司揽到一个给空军部队做管理系统的活，但是要在iPad上。当时的移动端就我一个人，我还只会Android，老板找到我，意味深长的说，既然是移动端，那你也应该会苹果开发，就让我做并且说不难，要用phoneGap做，就这样，我开始对iOS开发有兴趣了。&lt;/p&gt;
 
-&lt;h2 id=&quot;第三家公司是qq聊过去的&quot;&gt;第三家公司是qq聊过去的&lt;/h2&gt;
+&lt;h2 id=&quot;qq&quot;&gt;第三家公司是qq聊过去的&lt;/h2&gt;
 
 &lt;p&gt;在去这家公司之前，是别人推荐的。然后加QQ聊过去的。刚去的时候就是奔移动端去的。当时问我对iOS开发有没有兴趣，也就是到这家公司的时候，我才正式的成为一个iOS的初级菜鸟，当时正式swift将要发布的时间。当时的工资3k。这里碰到第二个需要感谢的人 &lt;strong&gt;晶姐&lt;/strong&gt; 因为当时对iOS了解的不多，问题都是请教她的。碰到的一切应该都可以算是全新的吧。&lt;/p&gt;
 
 &lt;p&gt;刚开始公司规模只有不到20人。这个时候其实是干的最开心的时候，大家没有勾心斗角，大家的目标明确，就是完成既定里程碑。虽然很累，经常加班。1年的工时，年底总结的工时是1年半的工时。后来公司的这个项目做好了。公司决定转为产品。这个时候公司大概70、80人了。但是仅仅改个名就叫产品的话，后面就接连不断的问题出现了。公司以项目为开始，做的即时通讯的APP，后来转产品，公司的战略规划也变成平台了。可是程序并没有 &lt;strong&gt;重构&lt;/strong&gt;，基本的消息协议 &lt;strong&gt;未修改&lt;/strong&gt;，很多痛点问题没有解决。每个阶段都在疲于奔命的改bug，我看到公司对转产品的定义，就是皮肤换了好几套、一个简单的信息展示界面重新设计的很多遍，不知道核心的东西、核心的功能是什么，只是一味的加没有人用的功能。
 最终公司看到这些问题了。于是成立了成都分公司，分公司的团队认为现有的架构不足以支撑，决定重做，然后公司就让分公司重做了。然后分公司有了一点点成果了。就来邀功了，什么都是捡现成的，大言不惭的说龙江分公司2年的活，成都分公司2个月就干出来了，（主要是移动端）我真的想说真tm不要脸。需求都是这两年一点点加上来的，如果能一次都说出来，也不用拖两年才干完。最终经过质检部测试部门给出的结论，就是成都分公司的500+的bug。不过也没看出公司对这么多bug有什么不满，依旧对分公司很有信心。说这么只是我个人对公司对我们态度的不忿而已，我们之前所有的任务都是按照领导的要求及期限完成的，结果目标完成，公司对目标的不认可却放到开发的身上。真正的责任不应该是领导开发的人么？在这个公司待到现在，真心希望公司更好，但是现在内部的管理机制存在很大问题。也可能是我个人能力不行，融入不进去现在的氛围，但是我希望我奋斗过的公司可以走的更远。&lt;/p&gt;
 
-&lt;h2 id=&quot;真正的总结&quot;&gt;真正的总结&lt;/h2&gt;
+&lt;h2 id=&quot;section-1&quot;&gt;真正的总结&lt;/h2&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;前面的都是废话，这里才是真正的总结&lt;/p&gt;
@@ -138,9 +138,9 @@
  
  <entry>
    <title>Introducing Lanyon</title>
-   <link href="http://localhost:4000/2014/01/02/introducing-lanyon/"/>
+   <link href="http://lanyon.getpoole.com/2014/01/02/introducing-lanyon/"/>
    <updated>2014-01-02T00:00:00+08:00</updated>
-   <id>http://localhost:4000/2014/01/02/introducing-lanyon</id>
+   <id>http://lanyon.getpoole.com/2014/01/02/introducing-lanyon</id>
    <content type="html">&lt;p&gt;Lanyon is an unassuming &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll&lt;/a&gt; theme that places content first by tucking away navigation in a hidden drawer. It’s based on &lt;a href=&quot;http://getpoole.com&quot;&gt;Poole&lt;/a&gt;, the Jekyll butler.&lt;/p&gt;
 
 &lt;h3 id=&quot;built-on-poole&quot;&gt;Built on Poole&lt;/h3&gt;
@@ -183,9 +183,9 @@
  
  <entry>
    <title>Example content</title>
-   <link href="http://localhost:4000/2014/01/01/example-content/"/>
+   <link href="http://lanyon.getpoole.com/2014/01/01/example-content/"/>
    <updated>2014-01-01T00:00:00+08:00</updated>
-   <id>http://localhost:4000/2014/01/01/example-content</id>
+   <id>http://lanyon.getpoole.com/2014/01/01/example-content</id>
    <content type="html">&lt;div class=&quot;message&quot;&gt;
   Howdy! This is an example blog post that shows several types of HTML content supported in this theme.
 &lt;/div&gt;
@@ -316,9 +316,9 @@
  
  <entry>
    <title>What's Jekyll?</title>
-   <link href="http://localhost:4000/2013/12/31/whats-jekyll/"/>
+   <link href="http://lanyon.getpoole.com/2013/12/31/whats-jekyll/"/>
    <updated>2013-12-31T00:00:00+08:00</updated>
-   <id>http://localhost:4000/2013/12/31/whats-jekyll</id>
+   <id>http://lanyon.getpoole.com/2013/12/31/whats-jekyll</id>
    <content type="html">&lt;p&gt;&lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll&lt;/a&gt; is a static site generator, an open-source tool for creating simple yet powerful websites of all shapes and sizes. From &lt;a href=&quot;https://github.com/mojombo/jekyll/blob/master/README.markdown&quot;&gt;the project’s readme&lt;/a&gt;:&lt;/p&gt;
 
 &lt;blockquote&gt;
