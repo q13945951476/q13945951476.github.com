@@ -69,6 +69,10 @@
     
       
     
+      
+        
+      
+    
 
     <!-- <a class="sidebar-nav-item" href="/archive/v1.0.0.zip">Download</a> -->
     <!-- <a class="sidebar-nav-item" href="">GitHub project</a> -->
@@ -97,6 +101,191 @@
 
       <div class="container content">
         <div class="posts">
+  <!-- 
+  <div class="post">
+    <h1 class="post-title">
+      <a href="//2017/02/04/17%E5%B9%B4%E7%9A%84GCD%E5%AD%A6%E4%B9%A0/">
+        2017年的GCD学习
+      </a>
+    </h1>
+
+    <span class="post-date">04 Feb 2017</span>
+
+    <!-- <div class="message">
+  基础不牢，一点点补起来吧，虽然之前用过，但是为什么这么用，完全不懂，有时候都是试的。。。
+</div>
+<p>文章的主要内容是从 <a href="http://mobile.51cto.com/iphone-402981.htm">这里</a> 看到的，主要也是复述一遍，让自己不只是读一下就过去了。</p>
+
+<blockquote>
+  <p>GCD是一套底层API，提供并发程序编写方法。允许程序将任务切分为多个单一任务，然后提交到工作队列并发的或者穿行的执行。</p>
+</blockquote>
+
+<h3 id="section">优势：</h3>
+<ul>
+  <li>易用，比thread简单易用，基于block它能极为简单的在不同代码作用域之间传递上下文</li>
+  <li>效率，快速、更易用。</li>
+  <li>性能，GCD自动根据系统负载来增减线程数。</li>
+</ul>
+
+<blockquote>
+  <p>GCD是纯c语言的，面向对象的风格，GCD对象被称为dispatch object，是引用计数的。但并不参与垃圾回收系统，必须手动管理GCD对象的内存。
+GCD的基本概念就是dispatch queue，是一个对象，它可以接受任务，并将任务以 先到先执行的顺序执行，可以是并发或串行的，并发会基于系统负载，串行队列同一时间只执行单一任务。</p>
+</blockquote>
+
+<p>GCD中有三种队列类型：</p>
+<ul>
+  <li>The main queue：与主线程功能相同，提交的任务会在主线程中执行，调用dispatch_get_main_queue()来获得，因为与主线程相关，所以是串行队列。</li>
+  <li>Global queues：全局队列是并发队列，并由整个进程共享，进程中存在高、中、低三个优先级队列，调用dispatch_get_global_queue()传入优先级访问队列。</li>
+  <li>用户队列：调用dispatch_queue_create创建队列，这些队列是串行的，可以用来完成同步机制。</li>
+</ul>
+
+<p>向一个队列提交任务，用dispatch_async函数，传入一个队列和一个block，队列会在轮到这个block时执行block内的代码，</p>
+
+<figure class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">dispatch_async( dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+	[self xxxxx];
+	NSLog(@“xxxxxxxxxx”);
+});</code></pre></figure>
+
+<p>dispatch_async会立即返回，block会在后台异步执行。
+完成block任务时，更新界面，嵌套使用，在main queue 更新界面</p>
+
+<figure class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{ 
+       [self xxxx]; 
+       dispatch_async(dispatch_get_main_queue(), ^{
+		[xxxx reload];
+	});
+});</code></pre></figure>
+
+<p>dispatch_sync与dispatch_async的不同是，会等待block代码执行后返回，结合__block类型修饰符,可以冲执行中的block获取一个值，</p>
+
+<figure class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">__block NSString *stringValue;
+dispatch_sync( , ^{
+        // __block variables aren't automatically retained
+        // so we'd better make sure we have a reference we can keep
+	stringValue = [[textField stringValue] copy];
+});
+[stringValue autorelease];
+// use stringValue in the background now</code></pre></figure>
+
+<p>还可以使用嵌套的block来中止后台线程，然后从主线程中获取值，然后再将后期处理提交至后台线程。</p>
+
+<figure class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">dispatch_queue_t bgQueue = myQueue;
+dispatch_async(dispatch_get_main_queue(), ^{
+	NSString *stringValue = @“xxxxx”;
+	dispatch_async(bgQueue,^{
+		// use stringValue in the background now
+	});
+});</code></pre></figure>
+
+<p>myQueue可以是用户队列也可以是全局队列。
+用户队列可以用于替代锁来完成同步机制，在传统多线程中，你可能有一个对象要被多个线程使用，你需要一个锁来保护这个对象。
+NSLock *lock;</p>
+
+<figure class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">-(id)something{
+	id lockalSomething;
+	[lock lock];
+	localSomething = [something something];
+	[lock unlock];
+	return localSomething;
+}
+
+-(void)setSomething:(id)newSomething{
+	[lock lock];
+	if(newSomething != something){
+		[something something];
+		something = [newSomething something];
+		[self xxxxx];
+	}
+	[lock unlock];
+}</code></pre></figure>
+
+<p>使用GCD，可以使用queue来替代。
+要用于同步机制，queue必须是一个用户队列，然后用dispatch_async(dispatch_sync)将共享数据的访问封装起来。</p>
+
+<figure class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">-（id）something{
+	__block id localSomething;
+	dispatch_sync(queue,^{
+		localSomething = [something something];
+	});
+	return localSomething;
+}
+-(void)setSomething:(id)newSomething{
+	dispatch_async(queue,^{
+		if(newSomething != something){
+			[something something];
+			something = newSomething;
+			[self xxxxxxx];
+		}
+	});
+}</code></pre></figure>
+
+<p>注意在第二个版本的代码中， -setSomething:是怎么使用dispatch_async的。调用 -setSomething:会立即返回，然后这一大堆工作会在后台执行。如果updateSomethingCaches是一个很费时费力的任务，且调用者将要进行一项处理器高负荷任务，那么这样做会很棒.</p>
+
+<p>设想下循环
+for(id obj in array){
+	[self doSome];
+}
+用GCD实现</p>
+
+<figure class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0);
+for(id obj in array){
+	dispath_async(queue,^{
+		[self doSome];
+	});
+}</code></pre></figure>
+
+<p>新增需求，操作结束后，还要对结果进行其他操作
+for(id obj in array){
+	[self doSomexxx];
+}
+[self doOtherxxx];
+不能简单实用dispatch_sync，因为会阻塞。解决这个问题的一种方式是使用dispatch group ,一个dispatch group可以用来将多个block组成一组以监测这些block全部完成或者等待全部完成时的消息，使用函数dispatch_group_create来创建，然后使用dispatch_group_async来将block提交至一个dispatch queue,同时将它们添加至一个组。</p>
+
+<figure class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">dispatch_queue_t queue = dispathc_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0);
+dispatch_group_t group = dispatch_group_create();
+for(id obj in array){
+	dispatch_group_async(group,queue,^{
+		[self doSomexxx];
+	});
+}
+dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
+dispatch_release(group);
+[self doOtherxxxx];</code></pre></figure>
+
+<p>如果可以异步执行</p>
+
+<figure class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">dispatch_queue_t queue = dispatch_get_global_qeueue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);  
+dispatch_group_t group = dispatch_group_create();  
+for(id obj in array)  
+    dispatch_group_async(group, queue, ^{  
+        [self doSomethingIntensiveWith:obj];  
+    });  
+dispatch_group_notify(group, queue, ^{  
+    [self doSomethingWith:array];  
+});  
+dispatch_release(group);</code></pre></figure>
+
+<p>如果doSomethingWith:需要在主线程中执行，那么我们只要将main queue而非全局队列传给dispatch_group_notify函数就行了。
+对于同步执行，GCD提供了一个简化方法叫做dispatch_apply。这个函数调用单一block多次.</p>
+
+<figure class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">dispatch_queue_t queue = dispatch_get_global_qeueue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);  
+dispatch_apply([array count], queue, ^(size_t index){  
+    [self doSomethingIntensiveWith:[array objectAtIndex:index]];  
+});  
+[self doSomethingWith:array];</code></pre></figure>
+
+<p>但是异步咋办？dispatch_apply函数可是没有异步版本的。所以我们只要用dispatch_async函数将所有代码推到后台就行了</p>
+
+<figure class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+dispatch_async(queue,^{
+	dispatch_apply([array count], queue, ^(size_t index){  
+    		[self doSomethingIntensiveWith:[array objectAtIndex:index]];  
+	});  
+	[self doSomethingWith:array];
+});</code></pre></figure>
+
+ -->
+  <!-- </div> -->
   <!-- 
   <div class="post">
     <h1 class="post-title">
@@ -415,32 +604,14 @@
 <p>Want to see something else added? <a href="https://github.com/poole/poole/issues/new">Open an issue.</a></p>
  -->
   <!-- </div> -->
-  <!-- 
-  <div class="post">
-    <h1 class="post-title">
-      <a href="//2013/12/31/whats-jekyll/">
-        What's Jekyll?
-      </a>
-    </h1>
-
-    <span class="post-date">31 Dec 2013</span>
-
-    <!-- <p><a href="http://jekyllrb.com">Jekyll</a> is a static site generator, an open-source tool for creating simple yet powerful websites of all shapes and sizes. From <a href="https://github.com/mojombo/jekyll/blob/master/README.markdown">the project’s readme</a>:</p>
-
-<blockquote>
-  <p>Jekyll is a simple, blog aware, static site generator. It takes a template directory […] and spits out a complete, static website suitable for serving with Apache or your favorite web server. This is also the engine behind GitHub Pages, which you can use to host your project’s page or blog right here from GitHub.</p>
-</blockquote>
-
-<p>It’s an immensely useful tool and one we encourage you to use here with Lanyon.</p>
-
-<p>Find out more by <a href="https://github.com/mojombo/jekyll">visiting the project on GitHub</a>.</p>
- -->
-  <!-- </div> -->
   <!--   -->
 
   <h1>Blog Posts</h1>
 
   <ul class="posts" id="archive">
+    
+      <!-- <li><span>04 Feb 2017</span> &raquo; <a href="/2017/02/04/17%E5%B9%B4%E7%9A%84GCD%E5%AD%A6%E4%B9%A0/">2017年的GCD学习</a></li> -->
+      <li><a href="/2017/02/04/17%E5%B9%B4%E7%9A%84GCD%E5%AD%A6%E4%B9%A0/">2017年的GCD学习</a> &raquo; <abbr>04 Feb 2017</abbr></li>
     
       <!-- <li><span>26 Dec 2016</span> &raquo; <a href="/2016/12/26/zuoimage/">no zuo no die</a></li> -->
       <li><a href="/2016/12/26/zuoimage/">no zuo no die</a> &raquo; <abbr>26 Dec 2016</abbr></li>
@@ -464,7 +635,7 @@
 
 <div class="pagination">
   
-    <span class="pagination-item older">Older</span>
+    <a class="pagination-item older" href="/page2">Older</a>
   
   
     <span class="pagination-item newer">Newer</span>
