@@ -4,13 +4,52 @@
  <title>Yulz Coder</title>
  <link href="http://lanyon.getpoole.com/atom.xml" rel="self"/>
  <link href="http://lanyon.getpoole.com/"/>
- <updated>2017-02-16T14:49:24+08:00</updated>
+ <updated>2017-02-17T14:35:31+08:00</updated>
  <id>http://lanyon.getpoole.com</id>
  <author>
    <name>Yulz</name>
    <email>191237647@qq.com</email>
  </author>
 
+ 
+ <entry>
+   <title>格式模板</title>
+   <link href="http://lanyon.getpoole.com/2017/02/17/%E6%A0%BC%E5%BC%8F%E6%A8%A1%E6%9D%BF/"/>
+   <updated>2017-02-17T00:00:00+08:00</updated>
+   <id>http://lanyon.getpoole.com/2017/02/17/格式模板</id>
+   <content type="html">&lt;blockquote&gt;
+  &lt;p&gt;把几种常用的，或者知道的几种格式列举出来，方便以后使用.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.baidu.com&quot;&gt;这是百度链接&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/about&quot;&gt;这是本地about链接&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;这是正常的文字和Abc&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;斜体&lt;/em&gt; &lt;strong&gt;加粗&lt;/strong&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;红字&lt;/code&gt; —(中横杠）&lt;/li&gt;
+  &lt;li&gt;另一种重点行&lt;/li&gt;
+  &lt;li&gt;第二行重点
+    &lt;ol&gt;
+      &lt;li&gt;二级数字列表&lt;/li&gt;
+      &lt;li&gt;二级第二行&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;h4 id=&quot;section&quot;&gt;标题格式&lt;/h4&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;h1 id=&quot;section-1&quot;&gt;标题格式&lt;/h1&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://jekyll.com.cn&quot;&gt;Jekyll中文版&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll&lt;/a&gt;有自己的写法，可以搜搜比如，代码高亮，&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt; &lt;span class=&quot;n&quot;&gt;UIView&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;view&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UIView&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;稍微注意一下路径，就可以显示图片、音乐、文件，我也是简单写一写，上面这些比较常用，简单，主要还是看内容和坚持，而且&lt;strong&gt;&lt;em&gt;支持H5&lt;/em&gt;&lt;/strong&gt;，够用够用了。&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Frame和bounds的区别</title>
